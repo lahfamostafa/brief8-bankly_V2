@@ -16,12 +16,12 @@ $row = mysqli_fetch_assoc($result);
     <title>Document</title>
 </head>
 <body>
-    <form action="update.php" method="POST">
-        <input type="number"  name="id" value="<?=$row['id']?>">
+    <form action="update.php" method="post">
+        <input type="hidden" name="id" value="<?=$row['id'] ?>">
         <br><br>
-        <input type="text" name="nom" value="<?=$row['nom']?>">
+        <input type="text" name="nom" value="<?=$row['nom'] ?>">
         <br><br>
-        <input type="number" name="age" value="<?=$row['age']?>">
+        <input type="number" name="age" value="<?=$row['age'] ?>">
         <br><br>
         <button type="submit">update</button>
     </form>

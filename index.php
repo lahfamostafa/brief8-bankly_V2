@@ -36,7 +36,7 @@ $result = mysqli_query($conn , $select);
             <td><?= $row['age']?></td>
             <td><a href="edit.php?id=<?=$row['id'] ?>">update</a>
             |
-            <a href="delete.php?id=<?=$row['id'] ?>">delete</a></td>
+            <a href="delete.php?id=<?=$row['id'] ?>" onclick="return confirm('supprimer ?')" >delete</a></td>
             </tr>
         <?php }?>
     </table>
