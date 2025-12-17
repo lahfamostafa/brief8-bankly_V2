@@ -10,8 +10,8 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <title>Bankly V2</title>    
-    <link rel="stylesheet" href="src/output.css">
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
 <body class="bg-gray-100">
 
 <header class="bg-white shadow">
@@ -27,7 +27,7 @@ if (!isset($_SESSION['user'])) {
                 Dashboard
             </a>
 
-            <a href="list_clients.php"
+            <a href="Client/list_clients.php"
                class="hover:text-blue-600 transition Clients">
                 Clients
             </a>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['user'])) {
                 <?php echo $_SESSION['user']; ?>
             </span>
 
-            <a href="logout.php"
+            <a href="../logout.php"
                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
                 Déconnexion
             </a>

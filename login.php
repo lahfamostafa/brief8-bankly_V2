@@ -12,7 +12,7 @@
 
             if($pass == $row['passwrd']){
                 $_SESSION['user'] = $row['userName']; 
-                header("Location: dashboard.php");
+                header("Location: dashboard/dashboard.php");
                 exit;
             }else{
                 $error = "Le mot de passe est incorrect";

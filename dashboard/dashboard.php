@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include '../header.php'; ?>
 <style>
     .Dashboard{
         color:blue;
@@ -33,4 +33,4 @@
     </p>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include '../footer.php'; ?>
