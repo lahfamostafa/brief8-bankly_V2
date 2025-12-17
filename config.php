@@ -2,7 +2,7 @@
     $server = "localhost";
     $user = "root";
     $password = "";
-    $db = "test";
+    $db = "Bankly_V2";
 
     $conn = mysqli_connect($server , $user , $password , $db);
 

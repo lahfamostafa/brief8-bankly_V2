@@ -1,6 +1,6 @@
 <?php
 include "config.php";
-$select = "select*from classeyc";
+$select = "select*from user";
 $result = mysqli_query($conn , $select);
 ?>
 
@@ -32,8 +32,8 @@ $result = mysqli_query($conn , $select);
         <?php while($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
             <td><?= $row['id']?></td>
-            <td><?= $row['nom']?></td>
-            <td><?= $row['age']?></td>
+            <td><?= $row['userName']?></td>
+            <td><?= $row['passwrd']?></td>
             <td><a href="edit.php?id=<?=$row['id'] ?>">update</a>
             |
             <a href="delete.php?id=<?=$row['id'] ?>" onclick="return confirm('supprimer ?')" >delete</a></td>
