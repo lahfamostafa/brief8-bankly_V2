@@ -2,6 +2,7 @@
 include "config.php";
 $select = "select*from user";
 $result = mysqli_query($conn , $select);
+include "header.php"
 ?>
 
 <!DOCTYPE html>
@@ -42,3 +43,7 @@ $result = mysqli_query($conn , $select);
     </table>
 </body>
 </html>
+
+<?php
+include "footer.php"
+?>

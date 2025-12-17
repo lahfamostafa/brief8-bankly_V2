@@ -11,7 +11,8 @@
             $row = mysqli_fetch_assoc($result);
 
             if($pass == $row['passwrd']){
-                header("Location: index.php");
+                $_SESSION['user'] = $row['userName']; 
+                header("Location: dashboard.php");
                 exit;
             }else{
                 $error = "Le mot de passe est incorrect";
