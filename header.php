@@ -1,4 +1,5 @@
 <?php
+include "config.php";
 session_start();
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
@@ -12,7 +13,7 @@ if (!isset($_SESSION['user'])) {
     <title>Bankly V2</title>    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 pb-16">
 
 <header class="bg-white shadow">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -22,12 +23,12 @@ if (!isset($_SESSION['user'])) {
         </h1>
 
         <nav class="flex gap-6 text-gray-700 font-medium">
-            <a href="dashboard.php"
+            <a href="../dashboard/dashboard.php"
                class="hover:text-blue-600 transition Dashboard">
                 Dashboard
             </a>
 
-            <a href="Client/list_clients.php"
+            <a href="../Client/list_clients.php"
                class="hover:text-blue-600 transition Clients">
                 Clients
             </a>
