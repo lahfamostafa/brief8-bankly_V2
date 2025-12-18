@@ -33,7 +33,7 @@ if (!isset($_SESSION['user'])) {
                 Clients
             </a>
 
-            <a href="list_accounts.php"
+            <a href="../Compte/list_compte.php"
                class="hover:text-blue-600 transition Comptes">
                 Comptes
             </a>
