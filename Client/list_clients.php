@@ -38,11 +38,11 @@ $result = mysqli_query($conn,"select * from client");
                 <td class="border px-4 py-2"><?= $row['email'] ?></td>
                 <td class="border px-4 py-2"><?= $row['CIN'] ?></td>
                 <td class="border px-4 py-2 text-center">
-                    <a href="#"
+                    <a href="update_client.php?id=<?= $row['id'] ?>"
                         class="text-blue-600 hover:underline mr-3">
                             Modifier
                         </a>
-                        <a href="delete_client.php?id=<?=$row['id'] ?>" onclick="return confirm('supprimer ?')"
+                        <a href="delete_client.php?id=<?= $row['id'] ?>" onclick="return confirm('supprimer ?')"
                         class="text-red-600 hover:underline">
                             Supprimer
                         </a>

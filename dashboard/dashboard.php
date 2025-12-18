@@ -1,4 +1,15 @@
-<?php include '../header.php'; ?>
+<?php 
+    include '../header.php'; 
+
+    $result_cl = mysqli_query($conn , "select count(*) as total from client");
+    $data_cl = mysqli_fetch_assoc($result_cl);
+    $count_cl = $data_cl['total'];
+    
+    $result_cmpt = mysqli_query($conn , "select count(*) as total from compte");
+    $data_cmpt = mysqli_fetch_assoc($result_cmpt);
+    $count_cmpt = $data_cmpt['total'];
+
+?>
 <style>
     .Dashboard{
         color:blue;
@@ -10,12 +21,12 @@
 
     <div class="bg-white p-6 rounded shadow grid justify-center items-center">
         <h3 class="text-gray-500 text-3xl">Clients</h3>
-        <p class="text-4xl font-bold text-blue-600">12</p>
+        <p class="text-4xl font-bold text-blue-600"><?php echo $count_cl ?></p>
     </div>
 
     <div class="bg-white p-6 rounded shadow  grid justify-center items-center">
         <h3 class="text-gray-500 text-3xl">Comptes</h3>
-        <p class="text-3xl font-bold text-green-600">8</p>
+        <p class="text-3xl font-bold text-green-600"><?php echo $count_cmpt ?></p>
     </div>
 
     <div class="bg-white p-6 rounded shadow  grid justify-center items-center">

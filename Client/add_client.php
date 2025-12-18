@@ -24,8 +24,11 @@ include "../header.php"
         $cin = $_POST['cin'];
         
         mysqli_query($conn, "insert into client (nom , email, CIN) value('$nom' , '$email' , '$cin')");
-        echo "<script>alert('✅ Client ajouté avec succès')</script>";
-        header("Location: list_clients.php");
-        exit();
+        echo "
+        <script>
+            alert('Client ajouté avec succès');
+            window.location.href='list_clients.php'
+        </script>";
+        
     }
 ?>
