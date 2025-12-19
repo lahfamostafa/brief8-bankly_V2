@@ -38,7 +38,7 @@ if (!isset($_SESSION['user'])) {
                 Comptes
             </a>
 
-            <a href="list_transactions.php"
+            <a href="../transactions/list_transaction.php"
                class="hover:text-blue-600 transition Transactions">
                 Transactions
             </a>
