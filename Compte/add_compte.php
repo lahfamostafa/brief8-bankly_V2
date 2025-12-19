@@ -10,14 +10,14 @@ $result = mysqli_query($conn,"select * from client");
 </style>
     <div class="container grid justify-center">
         <form action="add_compte.php" method="post" class="grid justify-center gap-4">
-            <select name="client_id" required class="border py-3 px-4">
+            <select name="client_id" required class="border bg-white py-3 px-4">
                 <option disabled selected>-- Choisir votre client --</option>
                 <?php while($row = mysqli_fetch_assoc($result)) { ?>
                 <option value="<?= $row['id'] ?>"><?= $row['nom']?></option>
                 <?php } ?>
             </select>
-            <input required name="num" type="text" placeholder="Numero compte" class="border py-3 px-4">
-            <input required name="solde" type="number" step="0.01" placeholder="Solde" class="border py-3 px-4">
+            <input required name="num" type="text" placeholder="Numero compte" class="border bg-white py-3 px-4">
+            <input required name="solde" type="number" step="0.01" placeholder="Solde" class="border bg-white py-3 px-4">
             <input type="submit" value="Ajouter" class="border py-3 px-4 bg-blue-400 text-white">
         </form>
     </div>

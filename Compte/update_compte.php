@@ -21,13 +21,13 @@ if(isset($_GET['id'])){
     <div class="container grid justify-center">
         <form method="post" class="grid justify-center gap-4">
             <input type="hidden" name="id" value="<?= $compte['id']?>" >
-            <select name="client_id" required class="border py-3 px-4">
+            <select name="client_id" required class="border bg-white py-3 px-4">
                 <?php while($row= mysqli_fetch_assoc($clients)) { ?>
                 <option value="<?= $row['id'] ?>" <?= $row['id']==$compte['client_id'] ? 'selected' : '' ?>><?= $row['nom']?></option>
                 <?php } ?>
             </select>
-            <input required name="num" value="<?= $compte['numero_commpte']?>" type="text" placeholder="Numero compte" class="border py-3 px-4">
-            <input required name="solde" value="<?= $compte['solde']?>" type="number" step="0.01" placeholder="Solde" class="border py-3 px-4">
+            <input required name="num" value="<?= $compte['numero_commpte']?>" type="text" placeholder="Numero compte" class="border bg-white py-3 px-4">
+            <input required name="solde" value="<?= $compte['solde']?>" type="number" step="0.01" placeholder="Solde" class="border bg-white py-3 px-4">
             <input type="submit" value="Modifier" class="border py-3 px-4 bg-blue-400 text-white">
         </form>
     </div>

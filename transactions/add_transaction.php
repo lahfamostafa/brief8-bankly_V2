@@ -10,19 +10,19 @@ $result = mysqli_query($conn,"select c.* , cl.nom as name_cl from compte c join 
 </style>
     <div class="container grid justify-center">
         <form action="add_transaction.php" method="post" class="grid justify-center gap-4">
-            <select name="compte_id" required class="border py-3 px-4">
+            <select name="compte_id" required class="border bg-white py-3 px-4">
                 <option disabled selected>-- Compte bancaire --</option>
                 <?php while($row = mysqli_fetch_assoc($result)) { ?>
                 <option value="<?= $row['id'] ?>"><?= $row['numero_commpte']?> - <?= $row['name_cl']?> (<?= $row['solde']?> MAD)</option>
                 <?php } ?>
             </select>
-            <select name="type" required class="border py-3 px-4">
+            <select name="type" required class="border bg-white py-3 px-4">
                 <option disabled selected>-- Type transaction --</option>
                 <option value="depot">Depot</option>
                 <option value="retrait">Retrait</option>
             </select>
-            <input required name="montant" type="number" step="0.01" placeholder="Montant" class="border py-3 px-4">
-            <input required name="description" type="text" step="0.01" placeholder="Description" class="border py-3 px-4">
+            <input required name="montant" type="number" step="0.01" placeholder="Montant" class="border bg-white py-3 px-4">
+            <input required name="description" type="text" step="0.01" placeholder="Description" class="border bg-white py-3 px-4">
             <input type="submit" value="Ajouter" class="border py-3 px-4 bg-blue-400 text-white">
         </form>
     </div>

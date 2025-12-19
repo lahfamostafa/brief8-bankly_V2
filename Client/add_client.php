@@ -9,9 +9,9 @@ include "../header.php"
 </style>
     <div class="container grid justify-center">
         <form action="add_client.php" method="post" class="grid justify-center gap-4">
-            <input required name="nom" type="text" placeholder="Nom complet" class="border py-3 px-4">
-            <input required name="email" type="email" placeholder="Email" class="border py-3 px-4">
-            <input required name="cin" type="text" placeholder="CIN" class="border py-3 px-4">
+            <input required name="nom" type="text" placeholder="Nom complet" class="border bg-white py-3 px-4">
+            <input required name="email" type="email" placeholder="Email" class="border bg-white py-3 px-4">
+            <input required name="cin" type="text" placeholder="CIN" class="border bg-white py-3 px-4">
             <input type="submit" value="Ajouter" class="border py-3 px-4 bg-blue-400 text-white">
         </form>
     </div>

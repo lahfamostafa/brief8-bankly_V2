@@ -41,7 +41,10 @@ $result = mysqli_query($conn,"select t.* , cl.nom as nom , c.numero_commpte as n
                 <td class="border px-4 py-2"><?= $row['id'] ?></td>
                 <td class="border px-4 py-2"><?= $row['num_cmpt'] ?></td>
                 <td class="border px-4 py-2"><?= $row['nom'] ?></td>
-                <td class="border px-4 py-2"><?= $row['typeT'] ?></td>
+                <td class="border px-4 py-2
+                <?= $row['typeT']=='depot' ? 'text-green-600' : 'text-red-600' ?>">
+                    <?= $row['typeT'] ?>
+                </td>
                 <td class="border px-4 py-2"><?= $row['montant'] ?></td>
                 <td class="border px-4 py-2"><?= $row['descript'] ?></td>
                 <td class="border px-4 py-2"><?= $row['dateT'] ?></td>

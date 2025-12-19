@@ -19,10 +19,10 @@ if(isset($_GET['id'])){
 </style>
     <div class="container grid justify-center">
         <form action="update_client.php" method="post" class="grid justify-center gap-4">
-            <input name="id" type="hidden" class="border py-3 px-4" value="<?= $row['id'] ?>">
-            <input required name="nom" type="text" class="border py-3 px-4" value="<?= $row['nom'] ?>">
-            <input required name="email" type="email" class="border py-3 px-4" value="<?= $row['email'] ?>">
-            <input required name="cin" type="text" class="border py-3 px-4" value="<?= $row['CIN'] ?>">
+            <input name="id" type="hidden" class="border bg-white py-3 px-4" value="<?= $row['id'] ?>">
+            <input required name="nom" type="text" class="border bg-white py-3 px-4" value="<?= $row['nom'] ?>">
+            <input required name="email" type="email" class="border bg-white py-3 px-4" value="<?= $row['email'] ?>">
+            <input required name="cin" type="text" class="border bg-white py-3 px-4" value="<?= $row['CIN'] ?>">
             <input type="submit" value="Update" class="border py-3 px-4 bg-blue-400 text-white">
         </form>
     </div>
