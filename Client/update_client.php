@@ -4,8 +4,11 @@ include "../config.php";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $sql = mysqli_query($conn, "select * from client where id = '$id'");
-    $row = mysqli_fetch_assoc($sql);
+    $stm = mysqli_prepare($conn, "select * from client where id = ?");
+    mysqli_stmt_bind_param($stm , "i" , $id);
+    mysqli_stmt_execute($stm);
+    $result = mysqli_stmt_get_result($stm);
+    $row = mysqli_fetch_assoc($result);
 }
 ?>
 
@@ -32,7 +35,9 @@ if(isset($_GET['id'])){
         $email = $_POST['email'];
         $cin = $_POST['cin'];
         
-        mysqli_query($conn, "update client set nom = '$nom' , email = '$email' , CIN = '$cin' where id = $id");
+        $stm = mysqli_prepare($conn, "update client set nom = ? , email = ? , CIN = ? where id = ?");
+        mysqli_stmt_bind_param($stm , 'sssi' , $nom , $email , $cin , $id);
+        mysqli_stmt_execute($stm);
         echo "
         <script>
             alert(\"Client ' $nom ' mis a jour avec succès\");

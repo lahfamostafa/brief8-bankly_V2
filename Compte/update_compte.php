@@ -4,9 +4,12 @@ include "../config.php";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $sql = mysqli_query($conn,"select c.* , cl.nom as name_cl from compte c join client cl on c.client_id = cl.id WHERE c.id = $id");
+    $stm = mysqli_prepare($conn,"select c.* , cl.nom as name_cl from compte c join client cl on c.client_id = cl.id WHERE c.id = ?");
+    mysqli_stmt_bind_param($stm , "i" , $id);
+    mysqli_stmt_execute($stm);
+    $sql = mysqli_stmt_get_result($stm);
     $compte = mysqli_fetch_assoc($sql);
-    $clients = mysqli_query($conn, "select * from client ");
+    $clients = mysqli_query($conn, "select * from client");
 }
 ?>
 
@@ -37,7 +40,9 @@ if(isset($_GET['id'])){
         $num = $_POST['num'];
         $solde = $_POST['solde'];
         
-        mysqli_query($conn, "update compte set client_id = '$client_id' , numero_commpte = '$num' , solde = $solde where id = $id");
+        $stm = mysqli_prepare($conn, "update compte set client_id = ? , numero_commpte = ? , solde = ? where id = ?");
+        mysqli_stmt_bind_param($stm , 'isdi' , $client_id , $num , $solde , $id);
+        mysqli_stmt_execute($stm);
         echo "
         <script>
             alert(\"Compte mis a jour avec succès\");

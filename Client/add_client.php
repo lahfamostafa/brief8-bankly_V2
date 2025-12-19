@@ -23,7 +23,9 @@ include "../header.php"
         $email = $_POST['email'];
         $cin = $_POST['cin'];
         
-        mysqli_query($conn, "insert into client (nom , email, CIN) value('$nom' , '$email' , '$cin')");
+        $stm = mysqli_prepare($conn, "insert into client (nom , email, CIN) value(? , ? , ?)");
+        mysqli_stmt_bind_param($stm , 'sss' , $nom , $email , $cin);
+        mysqli_stmt_execute($stm);
         echo "
         <script>
             alert('Client ajouté avec succès');

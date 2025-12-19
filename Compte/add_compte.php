@@ -29,7 +29,9 @@ $result = mysqli_query($conn,"select * from client");
         $num = $_POST['num'];
         $solde = $_POST['solde'];
         
-        mysqli_query($conn, "insert into compte (numero_commpte , solde, client_id) value('$num' , '$solde' , '$client_id')");
+        $stm = mysqli_prepare($conn, "insert into compte (numero_commpte , solde, client_id) value(? , ? , ?)");
+        mysqli_stmt_bind_param($stm , 'sdi' , $num , $solde , $client_id);
+        mysqli_stmt_execute($stm);
         echo "
         <script>
             alert('Compte ajouté avec succès');

@@ -21,7 +21,7 @@ $result = mysqli_query($conn,"select c.* , cl.nom as name_cl from compte c join 
                 <option value="depot">Depot</option>
                 <option value="retrait">Retrait</option>
             </select>
-            <input required name="montant" type="number" placeholder="Montant" class="border py-3 px-4">
+            <input required name="montant" type="number" step="0.01" placeholder="Montant" class="border py-3 px-4">
             <input required name="description" type="text" step="0.01" placeholder="Description" class="border py-3 px-4">
             <input type="submit" value="Ajouter" class="border py-3 px-4 bg-blue-400 text-white">
         </form>
@@ -35,7 +35,9 @@ $result = mysqli_query($conn,"select c.* , cl.nom as name_cl from compte c join 
         $description = $_POST['description'];
         $montant = $_POST['montant'];
         
-        mysqli_query($conn, "insert into transactions (typeT , montant , compte_id , descript) value('$type' , $montant , $compte_id , '$description')");
+        $stm = mysqli_prepare($conn, "insert into transactions (typeT , montant , compte_id , descript) value(? , ? , ? , ?)");
+        mysqli_stmt_bind_param($stm , 'sdis' , $type , $montant , $compte_id , $description);
+        mysqli_stmt_execute($stm);
         echo "
         <script>
             alert('Transaction ajouté avec succès');
