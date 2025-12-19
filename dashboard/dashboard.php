@@ -1,13 +1,17 @@
 <?php 
     include '../header.php'; 
 
-    $result_cl = mysqli_query($conn , "select count(*) as total from client");
-    $data_cl = mysqli_fetch_assoc($result_cl);
-    $count_cl = $data_cl['total'];
+    $sql_client = mysqli_query($conn , "select count(*) as total from client");
+    $result_client = mysqli_fetch_assoc($sql_client);
+    $count_client = $result_client['total'];
     
-    $result_cmpt = mysqli_query($conn , "select count(*) as total from compte");
-    $data_cmpt = mysqli_fetch_assoc($result_cmpt);
-    $count_cmpt = $data_cmpt['total'];
+    $sql_compte = mysqli_query($conn , "select count(*) as total from compte");
+    $result_compte = mysqli_fetch_assoc($sql_compte);
+    $count_compte = $result_compte['total'];
+
+    $sql_transactions = mysqli_query($conn , "select count(*) as total from transactions");
+    $result_transaction = mysqli_fetch_assoc($sql_transactions);
+    $count_transaction = $result_transaction['total']
 
 ?>
 <style>
@@ -21,17 +25,17 @@
 
     <div class="bg-white p-6 rounded shadow grid justify-center items-center">
         <h3 class="text-gray-500 text-3xl">Clients</h3>
-        <p class="text-4xl font-bold text-blue-600"><?php echo $count_cl ?></p>
+        <p class="text-4xl font-bold text-blue-600"><?php echo $count_client ?></p>
     </div>
 
     <div class="bg-white p-6 rounded shadow  grid justify-center items-center">
         <h3 class="text-gray-500 text-3xl">Comptes</h3>
-        <p class="text-3xl font-bold text-green-600"><?php echo $count_cmpt ?></p>
+        <p class="text-3xl font-bold text-green-600"><?php echo $count_compte ?></p>
     </div>
 
     <div class="bg-white p-6 rounded shadow  grid justify-center items-center">
         <h3 class="text-gray-500 text-3xl">Transactions</h3>
-        <p class="text-3xl font-bold text-purple-600">25</p>
+        <p class="text-3xl font-bold text-purple-600"><?php echo $count_transaction ?></p>
     </div>
 
 </div>

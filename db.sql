@@ -14,6 +14,7 @@ create table Compte (
     numero_commpte int,
     solde decimal (10,2) default 0,
     client_id int ,
+    date_creation datetime default current_timestamp,
     constraint fk_client_compte foreign key (client_id) references Client(id)on delete cascade
 )ENGINE=InnoDB;
 
@@ -22,7 +23,8 @@ create table Transactions (
     typeT varchar(10),
     constraint fk_check_type check (typeT in ('depot' , 'retrait')),
     montant decimal (10,2) default 0,
-    dateT date,
+    dateT datetime default current_timestamp,
+    descript varchar (100),
     compte_id int,
     constraint fk_trans_compte foreign key (compte_id) references Compte(id) on delete cascade 
 )ENGINE=InnoDB;
